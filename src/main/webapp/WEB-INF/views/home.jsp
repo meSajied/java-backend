@@ -10,6 +10,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Home</title>
+    <h1>${header}</h1>
   </head>
   <body>
     <!--<% List<String> cc = (List<String>)request.getAttribute("f"); 

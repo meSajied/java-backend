@@ -19,6 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 public class HomeController	{
 	private ApplicationContext context;
 	private Collections cc;
+
+	@ModelAttribute
+	public void commonData(Model model) {
+		model.addAttribute("header", "Sajied");
+	}
 	
 	@RequestMapping(value="/home")
 	public ModelAndView test() {
