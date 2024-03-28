@@ -19,6 +19,9 @@
 
     ${f}
 
+    <div>${user.email}</div>
+    <div>${user.name}</div>
+
     <c:forEach var="item" items="${f}" >
       <h2>${item}</h2>
     </c:forEach>

@@ -1,9 +1,13 @@
 package org.example.controller;
 
 import org.example.collection.Collections;
+import org.example.collection.User;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,4 +40,10 @@ public class HomeController	{
 		System.out.println(name);
 		System.out.println(email);
 	}
+
+	@RequestMapping(value="/formaction", method= RequestMethod.POST)
+	public String handleForm(@ModelAttribute User user, Model model) {
+		return "home";
+	}
+
 }
