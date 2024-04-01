@@ -2,7 +2,8 @@ package org.example.controller;
 
 import org.example.collection.Collections;
 import org.example.collection.User;
-
+import org.example.collection.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 public class HomeController	{
 	private ApplicationContext context;
 	private Collections cc;
+
+	@Autowired
+	public UserService userService;
 
 	@ModelAttribute
 	public void commonData(Model model) {
@@ -48,6 +52,7 @@ public class HomeController	{
 
 	@RequestMapping(value="/formaction", method= RequestMethod.POST)
 	public String handleForm(@ModelAttribute User user, Model model) {
+		this.userService.createUser(user);
 		return "home";
 	}
 
