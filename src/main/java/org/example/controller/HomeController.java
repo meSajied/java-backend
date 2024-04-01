@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
+
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -27,6 +30,24 @@ public class HomeController	{
 	@ModelAttribute
 	public void commonData(Model model) {
 		model.addAttribute("header", "Sajied");
+	}
+
+	@RequestMapping(value="/redirect")
+	public String redirect(HttpServletRequest response) {
+		/*try {
+			return response.sendRedirect("/home");
+		} catch(IOException e) {
+			e.printStackTrace();
+		}*/ // not recommended
+
+		return "redirect:/home";
+	}
+
+	@RequestMapping(value="/redirect")
+	public RedirectView redirectTwo() {
+		RedirectView r = new RedirectView();
+		r.setUrl("home");
+		return r;
 	}
 	
 	@RequestMapping(value="/home")
